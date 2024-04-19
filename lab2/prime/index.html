@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sprawdź liczbę pierwszą</title>
+  </head>
+  <body>
+    <h1>Sprawdź liczbę pierwszą</h1>
+    <form method="post" action="check.php">
+      <label for="number">Liczba:</label>
+      <input
+        type="number"
+        name="number"
+        id="number"
+        required
+        min="1"
+        step="1"
+      />
+      <button type="submit">Sprawdź</button>
+    </form>
+  </body>
+</html>
