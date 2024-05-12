@@ -8,10 +8,10 @@
 
   <body>
     <h1>Formularz rezerwacji hotelowej</h1>
-    <form method="post" action="save.php">
+    <form method="post" action="save.php" id="reservation">
       <label for="number_of_guests">Liczba osób:</label>
       <select name="number_of_guests" id="number_of_guests">
-        <option value="1">1</option>
+        <option value="1" default>1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option></select
@@ -54,6 +54,7 @@
       Popielniczka dla palacza<br />
 
       <button type="submit">Zarezerwuj</button>
+      <button type="reset">Wyczyść</button>
     </form>
   </body>
 
@@ -142,5 +143,15 @@
     document
       .getElementById("number_of_guests")
       .addEventListener("change", updateGuestForms);
+
+    document
+      .querySelector("#reservation>button[type=reset]")
+      .addEventListener("click", () => {
+        for (const [name, value] of cookies.entries()) {
+          if (name.startsWith("form__")) {
+            document.cookie = `${name}=; Max-Age=0; path=/;`;
+          }
+        }
+      });
   </script>
 </html>
