@@ -1,6 +1,13 @@
 <?php
+
+if (!isset($_COOKIE["session"])) {
+    echo "<p>Nie jesteś zalogowany</p>";
+    echo "<p><a href='login.html'>Zaloguj się</a></p>";
+    exit;
+}
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo "<p>Strona dostępna tylko po wysłaniu formularza</p>";
+    echo "<p>Strona dostępna tylko po wysłaniu formularza rezerwacji</p>";
+    echo "<p><a href='index.php'>Wróć do formularza rezerwacji</a></p>";
     exit;
 }
 
